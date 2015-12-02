@@ -24,6 +24,15 @@
   opacity: 1;
 }
 
+.loading-relative {
+    position: relative;
+}
+
+.spinner-relative,
+.bar-relative .bar{
+    position: absolute !important;
+}
+
 #loading-bar .bar {
   -webkit-transition: width 350ms;
   -moz-transition: width 350ms;
@@ -40,6 +49,7 @@
   border-bottom-right-radius: 1px;
   border-top-right-radius: 1px;
 }
+
 
 /* Fancy blur effect */
 #loading-bar .peg {

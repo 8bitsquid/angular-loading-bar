@@ -24,5 +24,6 @@
   },
   "resolutions": {
     "angular": "~1.2.23"
-  }
+  },
+  "private": true
 }

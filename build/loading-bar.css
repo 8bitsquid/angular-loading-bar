@@ -30,6 +30,15 @@
   opacity: 1;
 }
 
+.loading-relative {
+    position: relative;
+}
+
+.spinner-relative,
+.bar-relative .bar{
+    position: absolute !important;
+}
+
 #loading-bar .bar {
   -webkit-transition: width 350ms;
   -moz-transition: width 350ms;
@@ -46,6 +55,7 @@
   border-bottom-right-radius: 1px;
   border-top-right-radius: 1px;
 }
+
 
 /* Fancy blur effect */
 #loading-bar .peg {
@@ -105,6 +115,6 @@
   100% { -ms-transform: rotate(360deg); transform: rotate(360deg); }
 }
 @keyframes loading-bar-spinner {
-  0%   { transform: rotate(0deg);   transform: rotate(0deg); }
-  100% { transform: rotate(360deg); transform: rotate(360deg); }
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

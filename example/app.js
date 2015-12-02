@@ -29,9 +29,13 @@ angular.module('LoadingBarExample', ['chieffancypants.loadingBar', 'ngAnimate'])
       });
     };
 
-    $scope.start = function() {
-      cfpLoadingBar.start();
-    };
+        $scope.start = function() {
+            cfpLoadingBar.start();
+        };
+
+        $scope.startJumbotronSpinner = function() {
+            cfpLoadingBar.start({parentSelector: '.jumbotron', includeBar: false});
+        };
 
     $scope.complete = function () {
       cfpLoadingBar.complete();

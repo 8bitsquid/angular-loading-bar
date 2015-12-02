@@ -192,15 +192,19 @@ angular.module('cfp.loadingBar', [])
       var includeBar = this.includeBar;
       var startSize = this.startSize;
 
+
       /**
        * Inserts the loading bar element into the dom, and sets it to 2%
+       * @opt Object Used to override $parentSelector and bar/spinner display
        */
-      function _start() {
+      function _start(opt) {
+          opt = angular.extend({}, {parentSelector: $parentSelector, includeBar: includeBar, includeSpinner: includeSpinner}, opt);
         if (!$animate) {
-          $animate = $injector.get('$animate');
+            $animate = $injector.get('$animate');
         }
 
-        var $parent = $document.find($parentSelector).eq(0);
+        var $parent = document.querySelector(opt.parentSelector);
+          console.log(opt);
         $timeout.cancel(completeTimeout);
 
         // do not continually broadcast the started event:
@@ -211,13 +215,29 @@ angular.module('cfp.loadingBar', [])
         $rootScope.$broadcast('cfpLoadingBar:started');
         started = true;
 
-        if (includeBar) {
-          $animate.enter(loadingBarContainer, $parent, angular.element($parent[0].lastChild));
-        }
+          if (opt.parentSelector !== $parentSelector){
+              angular.element($parent).addClass('loading-relative');
+          }
 
-        if (includeSpinner) {
-          $animate.enter(spinner, $parent, angular.element($parent[0].lastChild));
-        }
+          if (opt.includeBar) {
+              if (opt.parentSelector === $parentSelector){
+                  loadingBarContainer.removeClass('bar-relative');
+              }
+              else {
+                  loadingBarContainer.addClass('bar-relative');
+              }
+              $animate.enter(loadingBarContainer, $parent, angular.element($parent.lastChild));
+          }
+
+          if (opt.includeSpinner) {
+              if (opt.parentSelector === $parentSelector){
+                  spinner.removeClass('spinner-relative');
+              }
+              else {
+                  spinner.addClass('spinner-relative');
+              }
+              $animate.enter(spinner, $parent, angular.element($parent.lastChild));
+          }
 
         _set(startSize);
       }

@@ -32,15 +32,23 @@
 
     <div class="examples" ng-hide="fakeIntro">
       <!-- <h4>Examples:</h4> -->
-      <div class="btn-group btn-group-justified">
-        <a href="#" class="btn btn-primary btn-lg" ng-click="start()">
-          <i class="glyphicon glyphicon-play-circle"></i> <span>cfpLoadingBar.</span>start()
-        </a>
-        <a href="#" class="btn btn-primary btn-lg" ng-click="complete()">
-          <i class="glyphicon glyphicon-play-circle"></i> <span>cfpLoadingBar.</span>complete()
-        </a>
-        <a href="#" class="btn btn-primary btn-lg" ng-click="fetch()"><i class="glyphicon glyphicon-play-circle"></i> Real Example <span> (from reddit)</span></a>
-      </div>
+        <div class="btn-group btn-group-justified">
+            <a href="#" class="btn btn-primary btn-lg" ng-click="start()">
+                <i class="glyphicon glyphicon-play-circle"></i> <span>cfpLoadingBar.</span>start()
+            </a>
+            <a href="#" class="btn btn-primary btn-lg" ng-click="complete()">
+                <i class="glyphicon glyphicon-play-circle"></i> <span>cfpLoadingBar.</span>complete()
+            </a>
+            <a href="#" class="btn btn-primary btn-lg" ng-click="fetch()"><i class="glyphicon glyphicon-play-circle"></i> Real Example <span> (from reddit)</span></a>
+        </div>
+        <div class="btn-group btn-group-justified">
+            <a href="#" class="btn btn-primary btn-lg" ng-click="startJumbotronSpinner()">
+                <i class="glyphicon glyphicon-play-circle"></i> <span>cfpLoadingBar.</span>start({parentSelector: '.jumbotron', includeBar: false})
+            </a>
+            <a href="#" class="btn btn-primary btn-lg" ng-click="complete()">
+                <i class="glyphicon glyphicon-play-circle"></i> <span>cfpLoadingBar.</span>complete()
+            </a>
+        </div>
     </div>
 
     <h4 class="loading-text" ng-show="subreddit">Showing 100 results for: <span>/r/{{subreddit}}...</span></h4>
